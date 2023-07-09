@@ -1,0 +1,61 @@
+<div class="container-product">
+
+  <h1> Productos </h1>
+
+  <h2>Bienvenido <b>{{user.first_name}}, </b> tu email es <b>{{user.email}}</b></h2>
+
+
+  <div class="container">
+    {{#each products}}
+    <div class="card text-center mb-3">
+      <div class="card-body" scope="row">
+        <img class="img-product" src="{{thumbnail}}" alt="">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{descripcion}}</p>
+        <p class="card-text">Stock {{stock}}</p>
+        <p class="card-text">${{price}}</p>
+        <button class="btn btn-sm btn-success addToCart" data-product-id="{{_id}}">Agregar al carrito</button>
+      </div>
+    </div>
+   {{/each}}
+  </div>
+
+
+
+
+
+
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <nav class="d-flex justify-content-end">
+        <ul class="pagination">
+          {{#if prevLink}}
+          <li class="page-item">
+            <a class="page-link" href="{{prevLink}}">Prev</a>
+          </li>
+          {{else}}
+          <li class="page-item disabled">
+            <span class="page-link">Prev</span>
+          </li>
+          {{/if}}
+          <li class="page-item">
+            <span class="page-link">Pag. {{pag}} of {{totalPages}}</span>
+          </li>
+          {{#if nextLink}}
+          <li class="page-item">
+            <a class="page-link" href="{{nextLink}}">Next</a>
+          </li>
+          {{else}}
+          <li class="page-item disabled">
+            <span class="page-link">Next</span>
+          </li>
+          {{/if}}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<script src='/socket.io/socket.io.js'></script>
+<script src="/js/cart.js"></script>

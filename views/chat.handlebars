@@ -1,0 +1,35 @@
+<div class="container-chat">
+    <form action='/' method='post'>
+        {{#if user}}
+        <div class="mb-3">
+            <h2>Requerimiento</h2>
+
+            <input type='text' class='form-control' placeholder='Email' aria-label='user' name='user'
+                value='{{user.email}}' />
+            <div id="emailHelp" class="form-text">Al enviar tu gestión te responderemos en un plazo de 24hs</div>
+
+            <input type='text' class='form-control' placeholder='ingresa un mensaje' aria-label='menssage'
+                name='menssage' />
+            <button type="submit" class="btn btn-primary">enviar</button>
+        </div>
+        {{/if}}
+
+    </form>
+
+    <div class='container-mensaje'>
+
+
+        <h2 class="Lista">Lista de Mensajes</h2>
+        <div id="List-Message"></div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='/js/index.js'></script>
